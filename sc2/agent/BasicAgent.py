@@ -189,7 +189,17 @@ class ZergBasicAgent(base_agent.BaseAgent):
 
             if self.can_do(obs, actions.FUNCTIONS.select_army.id):
                 return actions.FUNCTIONS.select_army("select")
-#####
+##### add viper
+        viper = self.get_units_by_type(obs, units.Zerg.Viper)
+        if len(viper) >= 10:
+            if self.unit_type_is_selected(obs, units.Zerg.Viper):
+                if self.can_do(obs, actions.FUNCTIONS.Attack_minimap.id):
+                    return actions.FUNCTIONS.Attack_minimap("now",
+                                                            self.attack_coordinates)
+
+            if self.can_do(obs, actions.FUNCTIONS.select_army.id):
+                return actions.FUNCTIONS.select_army("select")
+### 
 
         spawning_pools = self.get_units_by_type(obs, units.Zerg.SpawningPool)
         if len(spawning_pools) == 0:
