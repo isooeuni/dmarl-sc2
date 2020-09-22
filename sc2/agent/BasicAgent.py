@@ -156,7 +156,7 @@ class ZergBasicAgent(base_agent.BaseAgent):
     def step(self, obs):
         super(ZergBasicAgent, self).step(obs)
 
-        time.sleep(0.5)
+        #time.sleep(0.5)
 
         if obs.first():
             player_y, player_x = (obs.observation.feature_minimap.player_relative ==
